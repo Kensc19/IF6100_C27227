@@ -6,27 +6,33 @@ import org.springframework.web.bind.annotation.RestController;
 import ucr.ac.C27227.handlers.RegisterUserHandler;
 
 
-@RestController //Se usa para interactuar con una api
+@RestController
 public class HelloController {
 
-   @Autowired //Inyecta dependencias
-   private RegisterUserHandler handler;
+    @Autowired
+    private RegisterUserHandler handler;
+
 
     @GetMapping("/hello")
-    public String hello(){
-
-        var result = handler.registerUser(
-        new RegisterUserHandler.Command(
-                "Kendall",
-                "ejemplo@gmail.com",
-                "12345")
+    public String hello() {
+        var command = new RegisterUserHandler.Command(
+                "Leo",
+                "leo@gmail.com",
+                "password"
         );
 
-        return switch (result){
-            case RegisterUserHandler.Result.Success  success ->
-                    success.message();
-            case RegisterUserHandler.Result.InvalidData  invalidadData ->
-                    "Invalid data: " + String.join(", ", invalidadData.fields());
+        RegisterUserHandler.Result result = handler.registerUser(
+                command
+        );
+
+
+        return switch (result) {
+            case RegisterUserHandler.Result.Success success -> success.message();
+            case RegisterUserHandler.Result.InvalidData invalidData ->
+                    "Invalid data: " + String.join(", ", invalidData.fields());
+            case RegisterUserHandler.Result.EmailAlreadyExists emailAlreadyExists -> null;
         };
     }
+
 }
+

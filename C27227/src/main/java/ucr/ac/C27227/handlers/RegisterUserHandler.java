@@ -6,6 +6,7 @@ public interface RegisterUserHandler {
     sealed  interface Result {
          record Success(String message) implements Result{}
          record InvalidData (String ... fields) implements  Result{}
+        record EmailAlreadyExists(String email) implements Result{}
     }
     Result registerUser(Command command);
 }
