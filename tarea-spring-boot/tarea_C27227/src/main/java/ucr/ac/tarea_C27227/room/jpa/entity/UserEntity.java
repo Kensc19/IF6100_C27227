@@ -1,4 +1,4 @@
-package ucr.ac.tarea_C27227.room.jpa;
+package ucr.ac.tarea_C27227.room.jpa.entity;
 
 import jakarta.persistence.*;
 import java.util.Set;

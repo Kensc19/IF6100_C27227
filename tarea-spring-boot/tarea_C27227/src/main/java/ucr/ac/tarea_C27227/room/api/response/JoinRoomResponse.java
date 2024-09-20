@@ -1,4 +1,4 @@
-package ucr.ac.tarea_C27227.room.api;
+package ucr.ac.tarea_C27227.room.api.response;
 
 import java.util.List;
 
@@ -6,6 +6,13 @@ public class JoinRoomResponse {
     private String id;
     private String name;
     private List<String> users;
+
+
+    public JoinRoomResponse(String id, String name, List<String> users) {
+        this.id = id;
+        this.name = name;
+        this.users = users;
+    }
 
     public String getId() {
         return id;

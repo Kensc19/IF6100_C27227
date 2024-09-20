@@ -1,4 +1,4 @@
-package ucr.ac.tarea_C27227.room.api;
+package ucr.ac.tarea_C27227.room.api.request;
 
 public class ReadMessagesRequest {
     private String id;

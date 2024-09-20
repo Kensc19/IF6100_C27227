@@ -1,8 +1,9 @@
-package ucr.ac.tarea_C27227.room.api;
+package ucr.ac.tarea_C27227.room.api.request;
 
-public class JoinRoomRequest {
+public class SendMessageRequest {
     private String id;
     private String alias;
+    private String message;
 
     public String getId() {
         return id;
@@ -18,5 +19,13 @@ public class JoinRoomRequest {
 
     public void setAlias(String alias) {
         this.alias = alias;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }
