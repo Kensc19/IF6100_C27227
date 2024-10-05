@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import Details from './Details';
 
 function App() {
 	const [name, setName] = useState("");
@@ -17,11 +18,7 @@ function App() {
 			type="text"
 			onChange={(e) => setName(e.target.value)}/>
 			<button onClick={addNames}>Agregar</button>
-			<ul>
-				{names.map((name, index) => (
-					<li key={index}>{name}</li>
-				))}
-			</ul>
+			<Details names={names}/>
 	</div>
 	</>
 	);
