@@ -1,4 +1,8 @@
-import { RegisterUserRequest } from '../models/user.models';
+import {
+	AuthenticationInput,
+	AuthenticationResponse,
+	RegisterUserRequest,
+} from '../models/user.models';
 import { doPost } from './http.service';
 
 export const registerUser = async (
@@ -10,4 +14,14 @@ export const registerUser = async (
 	);
 
 	return response;
+};
+
+export const login = async (
+	user: AuthenticationInput,
+): Promise<AuthenticationResponse> => {
+	const result = await doPost<AuthenticationInput, AuthenticationResponse>(
+		user,
+		'/api/public/login',
+	);
+	return result;
 };
