@@ -1,17 +1,18 @@
 //import { validationSchema } from '@/utils/forms.util';
 //import { useNavigate } from 'react-router-dom';
-import { useApiHandler } from '../../../hooks/useApiHandlers';
-import { useSessionHandler } from '../../../hooks/useSessionHandler';
-import { AuthenticationInput, AuthenticationResponse } from '../../../models/user.models';
-import { login } from '../../../services/users.service';
-import { LoginForm } from './types';
 
+import { LoginForm } from './types';
+import { useNavigate } from 'react-router-dom';
+import { useSessionHandler } from '../../../hooks/useSessionHandler';
+import { useApiHandler } from '../../../hooks/useApiHandlers';
+import { login } from '../../../services/users.service';
+import { AuthenticationInput, AuthenticationResponse } from '../../../models/user.models';
 
 const useDependencies = () => {
 	const { setSessionStore, clearSession } = useSessionHandler();
 	const { handleMutation } = useApiHandler();
 	//const { setErrorNotificaiton } = useNotificationHandler();
-	//const navigate = useNavigate();
+	const navigate = useNavigate();
 
 	const initialValues = {
 		username: '',
@@ -45,7 +46,7 @@ const useDependencies = () => {
 		} else {
 			const response = result as AuthenticationResponse;
 			setSessionStore({ ...response });
-			//	navigate('/');
+			navigate('/');
 		}
 	};
 	const handleCancel = () => {
