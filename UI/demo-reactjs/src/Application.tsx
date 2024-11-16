@@ -4,13 +4,12 @@ import RegisterUser from './pages/RegisterUser';
 import { useSessionHandler } from './hooks/useSessionHandler';
 import ErrorBoundary from 'antd/es/alert/ErrorBoundary';
 import Home from './pages/Home';
-import Main from './pages/main';
 import Login from './pages/RegisterUser/Login/Login';
 
 const publicRoute = () => {
 	return (
 		<Routes>
-			<Route path='/' element={<Main />}>
+			<Route path='/' element={<main />}>
 				<Route index element={<Login />} />
 				<Route path='Register' element={<RegisterUser />} />
 				<Route path='Login' element={<Login />} />
@@ -21,7 +20,7 @@ const publicRoute = () => {
 const privateRoute = () => {
 	return (
 		<Routes>
-			<Route path='/' element={<Main />}>
+			<Route path='/' element={<main />}>
 				<Route index element={<Home />} />
 			</Route>
 		</Routes>
